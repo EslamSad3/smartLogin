@@ -1,0 +1,38 @@
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-main: #24353F;
+  --bg-header: #17A2B8;
+}
+body {
+  background-color: var(--bg-main);
+}
+
+.form-container{
+  box-shadow: -5px 2px 54px -9px rgba(0, 0, 0, 1);
+}
+
+.header{
+  color: var(--bg-header);
+}
+
+.form-control::placeholder{
+  color: white;
+}
+
+.form-control{
+  background-color: inherit;
+  color: white;
+}
+.form-control:focus{
+  background-color: inherit;
+  border: 1px solid var(--bg-header);
+  outline: none;
+  color: white;
+}
