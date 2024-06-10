@@ -26,7 +26,10 @@ if (loggedUser) {
 }
 
 // Determine the base path dynamically
-const basePath = window.location.hostname === 'localhost' ? '' : '/smartLogin';
+const basePath =
+  window.location.hostname === "localhost"
+    ? ""
+    : "/https://eslamsad3.github.io/";
 
 // Prevent home page access if not logged in
 document.addEventListener("DOMContentLoaded", function () {
@@ -195,8 +198,7 @@ async function getOnlyCarrot() {
   allMeals = [];
   allMeals.push(...recipes);
   showAllMeals();
-    mealsHeadr.innerHTML = `corn carrot : ${allMeals.length} `;
-
+  mealsHeadr.innerHTML = `corn carrot : ${allMeals.length} `;
 }
 
 carrot.addEventListener("click", function () {
@@ -209,8 +211,7 @@ async function getOnlyBroccoli() {
   allMeals = [];
   allMeals.push(...recipes);
   showAllMeals();
-    mealsHeadr.innerHTML = `broccoli meals : ${allMeals.length} `;
-
+  mealsHeadr.innerHTML = `broccoli meals : ${allMeals.length} `;
 }
 
 broccoli.addEventListener("click", function () {
