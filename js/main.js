@@ -25,25 +25,25 @@ if (loggedUser) {
   header.innerHTML = `Welcom ${loggedUser}`;
 }
 
-// Determine the base path dynamically
-const basePath =
-  window.location.hostname === "localhost"
-    ? ""
-    : "https://eslamsad3.github.io";
+// // Determine the base path dynamically
+// const basePath =
+//   window.location.hostname === "localhost"
+//     ? ""
+//     : "https://eslamsad3.github.io";
 
-// Prevent home page access if not logged in
-document.addEventListener("DOMContentLoaded", function () {
-  const loginPage = `${basePath}/login.html`;
-  const registerPage = `${basePath}/register.html`;
-  const currentPath = window.location.pathname;
+// // Prevent home page access if not logged in
+// document.addEventListener("DOMContentLoaded", function () {
+//   const loginPage = `${basePath}/login.html`;
+//   const registerPage = `${basePath}/register.html`;
+//   const currentPath = window.location.pathname;
 
-  // Check if we are not on the login or register page
-  if (currentPath !== loginPage && currentPath !== registerPage) {
-    if (!loggedUser) {
-      window.location.href = loginPage;
-    }
-  }
-});
+//   // Check if we are not on the login or register page
+//   if (currentPath !== loginPage && currentPath !== registerPage) {
+//     if (!loggedUser) {
+//       window.location.href = loginPage;
+//     }
+//   }
+// });
 // signUp
 function signUp() {
   // Check if user exists
