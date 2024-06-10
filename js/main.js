@@ -29,7 +29,7 @@ if (loggedUser) {
 const basePath =
   window.location.hostname === "localhost"
     ? ""
-    : "/https://eslamsad3.github.io/";
+    : "https://eslamsad3.github.io";
 
 // Prevent home page access if not logged in
 document.addEventListener("DOMContentLoaded", function () {
