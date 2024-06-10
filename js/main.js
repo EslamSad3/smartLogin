@@ -27,13 +27,14 @@ if (loggedUser) {
 
 // Prevent home page access if not logged in
 document.addEventListener("DOMContentLoaded", function () {
-  // Check if we are not on the login page
-  if (
-    window.location.pathname !== "/login.html" &&
-    window.location.pathname !== "/register.html"
-  ) {
+  const loginPage = "/login.html";
+  const registerPage = "/register.html";
+  const currentPath = window.location.pathname;
+
+  // Check if we are not on the login or register page
+  if (currentPath !== loginPage && currentPath !== registerPage) {
     if (!loggedUser) {
-      window.location.href = "/login.html";
+      window.location.href = loginPage;
     }
   }
 });
