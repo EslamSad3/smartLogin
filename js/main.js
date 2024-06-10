@@ -18,10 +18,10 @@ var users = JSON.parse(localStorage.getItem("users")) || [];
 // Prevent home page access if not logged in
 document.addEventListener("DOMContentLoaded", function () {
   // Check if we are not on the login page
-  if (window.location.pathname !== "smartLogin/login.html") {
+  if (window.location.pathname !== "/smartLogin/login.html") {
     var loggedUser = localStorage.getItem("loggedUser");
     if (!loggedUser) {
-      window.location.href = "smartLogin/login.html";
+      window.location.href = "/smartLogin/login.html";
     }
   }
 });
