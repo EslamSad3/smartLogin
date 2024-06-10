@@ -15,13 +15,17 @@ var loginBtn = document.getElementById("loginBtn");
 //  Users in localStorage
 var users = JSON.parse(localStorage.getItem("users")) || [];
 
+var loggedUser = localStorage.getItem("loggedUser");
+
 // Prevent home page access if not logged in
 document.addEventListener("DOMContentLoaded", function () {
   // Check if we are not on the login page
-  if (window.location.pathname !== "/smartLogin/login.html") {
-    var loggedUser = localStorage.getItem("loggedUser");
+  if (
+    window.location.pathname !== "/login.html" &&
+    window.location.pathname !== "/register.html"
+  ) {
     if (!loggedUser) {
-      window.location.href = "/smartLogin/login.html";
+      window.location.href = "/login.html";
     }
   }
 });
