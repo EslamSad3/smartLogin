@@ -25,10 +25,13 @@ if (loggedUser) {
   header.innerHTML = `Welcom ${loggedUser}`;
 }
 
+// Determine the base path dynamically
+const basePath = window.location.hostname === 'localhost' ? '' : '/smartLogin';
+
 // Prevent home page access if not logged in
 document.addEventListener("DOMContentLoaded", function () {
-  const loginPage = "/login.html";
-  const registerPage = "/register.html";
+  const loginPage = `${basePath}/login.html`;
+  const registerPage = `${basePath}/register.html`;
   const currentPath = window.location.pathname;
 
   // Check if we are not on the login or register page
