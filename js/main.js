@@ -25,25 +25,18 @@ if (loggedUser) {
   header.innerHTML = `Welcom ${loggedUser}`;
 }
 
-// // Determine the base path dynamically
-// const basePath =
-//   window.location.hostname === "localhost"
-//     ? ""
-//     : "https://eslamsad3.github.io";
-
-// // Prevent home page access if not logged in
-// document.addEventListener("DOMContentLoaded", function () {
-//   const loginPage = `${basePath}/login.html`;
-//   const registerPage = `${basePath}/register.html`;
-//   const currentPath = window.location.pathname;
-
-//   // Check if we are not on the login or register page
-//   if (currentPath !== loginPage && currentPath !== registerPage) {
-//     if (!loggedUser) {
-//       window.location.href = loginPage;
-//     }
-//   }
-// });
+// Prevent home page access if not logged in
+document.addEventListener("DOMContentLoaded", function () {
+  // Check if we are not on the login page
+  if (
+    window.location.pathname !== "/login.html" &&
+    window.location.pathname !== "/register.html"
+  ) {
+    if (!loggedUser) {
+      window.location.href = "/login.html";
+    }
+  }
+});
 // signUp
 function signUp() {
   // Check if user exists
@@ -198,7 +191,8 @@ async function getOnlyCarrot() {
   allMeals = [];
   allMeals.push(...recipes);
   showAllMeals();
-  mealsHeadr.innerHTML = `corn carrot : ${allMeals.length} `;
+    mealsHeadr.innerHTML = `corn carrot : ${allMeals.length} `;
+
 }
 
 carrot.addEventListener("click", function () {
@@ -211,7 +205,8 @@ async function getOnlyBroccoli() {
   allMeals = [];
   allMeals.push(...recipes);
   showAllMeals();
-  mealsHeadr.innerHTML = `broccoli meals : ${allMeals.length} `;
+    mealsHeadr.innerHTML = `broccoli meals : ${allMeals.length} `;
+
 }
 
 broccoli.addEventListener("click", function () {
