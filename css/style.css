@@ -14,7 +14,7 @@ body {
   background-color: var(--bg-main);
 }
 
-.form-container{
+.form-container,.navbar{
   box-shadow: -5px 2px 54px -9px rgba(0, 0, 0, 1);
 }
 
@@ -35,4 +35,18 @@ body {
   border: 1px solid var(--bg-header);
   outline: none;
   color: white;
+}
+
+.navbar-toggler{
+
+  background-color: #17A2B8;
+}
+
+.nav-item{
+  margin-inline: 15px;
+}
+
+.card-img-top {
+  height: 250px; /* Adjust the height as needed */
+  object-fit: fill; /* Ensure the image covers the area without distortion */
 }

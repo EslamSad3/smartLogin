@@ -1,18 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/icons.all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/icons.all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand text-white" href="#" id="header"></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <button class="btn btn-outline-warning" id="all">All</button>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-outline-warning" id="pizaa">pizaa</button>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-outline-info" id="carrot">carrot</button>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-outline-success" id="broccoli">
+                broccoli
+              </button>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-outline-primary" id="corn">corn</button>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-outline-danger" id="logOutBtn">
+                Logout
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-        <script src="js/bootstrap.bundle.min.js"></script>
+    <div class="container my-5">
+      <h2 class="header text-center" id="mealsHeadr">All Meals</h2>
+      <div class="row p-5 g-2" id="allMealsRow"></div>
+    </div>
+    <div class="conatiner p-5"></div>
+    <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/icons.all.min.js"></script>
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>

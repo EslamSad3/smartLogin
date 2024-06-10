@@ -6,16 +6,24 @@ var signUpBtn = document.getElementById("signUpBtn");
 var succestext = document.getElementById("succestext");
 var userExists = document.getElementById("userExists");
 
+var header = document.getElementById("header");
+
 // login variables
 var loginUserEmail = document.getElementById("loginUserEmail");
 var loginUserPassword = document.getElementById("loginUserPassword");
 var invalidUser = document.getElementById("invalidUser");
 var loginBtn = document.getElementById("loginBtn");
 
+// logout
+var logOutBtn = document.getElementById("logOutBtn");
+
 //  Users in localStorage
 var users = JSON.parse(localStorage.getItem("users")) || [];
+var loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
 
-var loggedUser = localStorage.getItem("loggedUser");
+if (loggedUser) {
+  header.innerHTML = `Welcom ${loggedUser}`;
+}
 
 // Prevent home page access if not logged in
 document.addEventListener("DOMContentLoaded", function () {
@@ -82,3 +90,125 @@ function clear() {
   signUpUserEmail.value = "";
   signUpUserPassword.value = "";
 }
+
+logOutBtn?.addEventListener("click", function () {
+  localStorage.removeItem("loggedUser");
+  window.location.href = "/login.html";
+});
+
+// api
+
+let basUrl = "https://forkify-api.herokuapp.com/api/search?";
+let allMeals = [];
+
+// btns
+var pizaa = document.getElementById("pizaa");
+var carrot = document.getElementById("carrot");
+var broccoli = document.getElementById("broccoli");
+var corn = document.getElementById("corn");
+var all = document.getElementById("all");
+var mealsHeadr = document.getElementById("mealsHeadr");
+
+// Generalized function to fetch meals based on query
+async function getMeals(query) {
+  try {
+    const response = await fetch(`${basUrl}q=${query}`);
+    const { recipes } = await response.json();
+    allMeals.push(...recipes);
+  } catch (error) {
+    console.log(error);
+  }
+  showAllMeals();
+}
+
+// Fetch and show all meals sequentially
+async function fetchAllMeals() {
+  await getMeals("pizza");
+  await getMeals("carrot");
+  await getMeals("corn");
+  await getMeals("broccoli");
+  // You can check the contents of allMeals here
+}
+
+// Function to display all meals
+function showAllMeals() {
+  let container = ``;
+  for (let i = 0; i < allMeals.length; i++) {
+    container += `
+      <div class="col-md-6 col-lg-3">
+          <div class="card" style="width: 15rem;">
+            <img src="${allMeals[i].image_url}" class="card-img-top" alt="${allMeals[i].publisher}" />
+            <div class="card-body">
+              <p class="card-title">${allMeals[i].publisher}</p>
+            </div>
+          </div>
+      </div>
+    `;
+  }
+  document.getElementById("allMealsRow").innerHTML = container;
+  mealsHeadr.innerHTML = `All meeals : ${allMeals.length} `;
+}
+
+// Start fetching meals
+fetchAllMeals();
+
+all.addEventListener("click", function () {
+  fetchAllMeals();
+  showAllMeals();
+});
+
+// Get meals by query
+
+async function getOnlyPizza() {
+  const response = await fetch(`${basUrl}q=pizza`);
+  const { recipes } = await response.json();
+  allMeals = [];
+  allMeals.push(...recipes);
+  showAllMeals();
+  mealsHeadr.innerHTML = `pizza meeals : ${allMeals.length} `;
+}
+
+pizaa.addEventListener("click", function () {
+  getOnlyPizza();
+});
+
+async function getOnlyCorn() {
+  const response = await fetch(`${basUrl}q=corn`);
+  const { recipes } = await response.json();
+  allMeals = [];
+  allMeals.push(...recipes);
+  showAllMeals();
+  mealsHeadr.innerHTML = `corn meeals : ${allMeals.length} `;
+}
+
+corn.addEventListener("click", function () {
+  getOnlyCorn();
+});
+
+async function getOnlyCarrot() {
+  const response = await fetch(`${basUrl}q=carrot`);
+  const { recipes } = await response.json();
+  allMeals = [];
+  allMeals.push(...recipes);
+  showAllMeals();
+    mealsHeadr.innerHTML = `corn carrot : ${allMeals.length} `;
+
+}
+
+carrot.addEventListener("click", function () {
+  getOnlyCarrot();
+});
+
+async function getOnlyBroccoli() {
+  const response = await fetch(`${basUrl}q=broccoli`);
+  const { recipes } = await response.json();
+  allMeals = [];
+  allMeals.push(...recipes);
+  showAllMeals();
+    mealsHeadr.innerHTML = `broccoli meals : ${allMeals.length} `;
+
+}
+
+broccoli.addEventListener("click", function () {
+  getOnlyBroccoli();
+});
